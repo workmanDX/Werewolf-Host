@@ -36,3 +36,11 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
+
+# Other files
+.eslintignore
+.forceignore
+.preetierignore
+.prettierrc
+package.json
+sfdx-project.json
