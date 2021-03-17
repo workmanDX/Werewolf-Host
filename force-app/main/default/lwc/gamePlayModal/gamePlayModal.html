@@ -1,0 +1,54 @@
+<!--
+  @description       : 
+  @author            : steven.workman@logmein.com
+  @group             : 
+  @last modified on  : 03-16-2021
+  @last modified by  : steven.workman@logmein.com
+  Modifications Log 
+  Ver   Date         Author                       Modification
+  1.0   12-03-2020   steven.workman@logmein.com   Initial Version
+-->
+<template>
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{gameActivity}</h2>
+                        <!-- <template if:true={showProgressBar}> -->
+                            <c-progress-bar
+                                duration={newDuration}
+                                ontimeout={handleCompleteAction}
+                            ></c-progress-bar>
+                        <!-- </template> -->
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style={backgroundStyle}>
+                        <table style="width:100%">
+                            <tr>
+                            </tr>
+                            <tr>
+                                <td style="width:30%" >
+                                    <template if:true={showImage}>
+                                        <div class="slds-align_absolute-center">
+                                            <img class={cardClass} src={cardImage} alt={gameActivity}>
+                                        </div>
+                                    </template>
+                                </td>
+                                <!-- <td style="width:30%"></td> -->
+                                <td >
+                                    <div class="h2">
+                                        {description}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_brand slds-align_absolute-center" onclick={handlePlayPause} title=play>{playButtonLabel}</button>
+                        <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                        <audio id="myAudio" class="my-audio" onloadedmetadata={handleAudioLoaded}></audio>                    
+                    </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

@@ -1,0 +1,32 @@
+<!--
+  @File Name          : gamePlay.html
+  @Description        : 
+  @Author             : steven.workman@logmein.com
+  @Group              : 
+  @Last Modified By   : steven.workman@logmein.com
+  @Last Modified On   : 12-02-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    5/19/2020   steven.workman@logmein.com     Initial Version
+-->
+<template>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+    </template>
+    <lightning-card> 
+        <template if:true={players}>
+            <template if:true={centerCards}>
+                <div class="playercontainer slds-box slds-align_absolute-center">
+                    <template for:each={centerCards} for:item="card">                    
+                        <c-card-display key={card.id} card={card} card-back={cardBack}></c-card-display>
+                    </template>
+                </div>
+            </template>
+            <div class="playercontainer slds-box slds-align_absolute-center">
+                <template for:each={players} for:item="card">                    
+                    <c-card-display key={card.id} card={card} card-back={cardBack} onplayervote={handlePlayerVote}></c-card-display>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>

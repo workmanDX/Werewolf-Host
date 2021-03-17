@@ -1,0 +1,19 @@
+<!--
+  @description       : 
+  @author            : steven.workman@logmein.com
+  @group             : 
+  @last modified on  : 12-05-2020
+  @last modified by  : steven.workman@logmein.com
+  Modifications Log 
+  Ver   Date         Author                       Modification
+  1.0   11-14-2020   steven.workman@logmein.com   Initial Version
+-->
+<template>
+  <div class="slds-align_absolute-center">
+    <p class="mobile-url slds-col slds-size_7-of-12">{shortMobileAppUrl}</p>
+  </div>
+    <!-- <p class="mobile-url">{gameCode}</p> -->
+  <div class="slds-align_absolute-center slds-col slds-size_5-of-12">
+    <c-qr-code size="400" url={gameSettings.playerAppUrl}></c-qr-code>
+  </div>
+</template>

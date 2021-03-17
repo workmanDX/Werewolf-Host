@@ -1,0 +1,36 @@
+.h1 {
+    text-align: center;
+}
+
+.cardimage {
+    cursor: pointer;
+    /* border: 2px black solid; */
+    /* background-color: white; */
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    max-width: 70%;
+    max-height: auto;
+    /* display: flex; */
+    text-align: center;
+}
+
+/* .cardimage:hover {
+    background-color: gray;
+    opacity: .75;
+} */
+
+.killed {
+    background-color: red;
+    max-width: 165px;
+}
+
+.true {
+    opacity: 1;
+}
+
+.false {
+    opacity: 0.65;
+}

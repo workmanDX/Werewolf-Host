@@ -1,0 +1,21 @@
+/* .slds-card {
+    background: rgb(243, 242, 242);
+} */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.header-title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+/* c-tile {
+    min-width: 100px;
+    flex: 1;
+    margin-top: 10px;
+} */

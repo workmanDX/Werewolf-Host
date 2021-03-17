@@ -1,0 +1,31 @@
+<!--
+  @File Name          : gameSetUp2.html
+  @Description        : 
+  @Author             : steven.workman@logmein.com
+  @Group              : 
+  @Last Modified By   : steven.workman@logmein.com
+  @Last Modified On   : 11-23-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    5/30/2020   steven.workman@logmein.com     Initial Version
+-->
+<template>
+    <div class="slds-align-middle header-title" >
+        {selectedCards.length}
+    </div>
+    <lightning-card>
+        <div>
+            <template if:true={characterList}>
+                <div class="container">
+                    <template for:each={characterList} for:item="card">
+                        <c-card-tile 
+                            key={card.id} 
+                            card={card}
+                            oncardselected={handleTileClick}>
+                        </c-card-tile>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

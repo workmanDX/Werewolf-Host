@@ -1,0 +1,153 @@
+<!--
+  @description       : 
+  @author            : steven.workman@logmein.com
+  @group             : 
+  @last modified on  : 12-05-2020
+  @last modified by  : steven.workman@logmein.com
+  Modifications Log 
+  Ver   Date         Author                       Modification
+  1.0   11-14-2020   steven.workman@logmein.com   Initial Version
+-->
+<template>
+    <template if:true={error}>
+        <div
+            class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error slds-m-bottom_small"
+            role="alert"
+        >
+            <span class="slds-assistive-text">error</span>
+            <h2>{error}</h2>
+        </div>
+    </template>
+
+    <div class="slds-card">
+        <template if:true={gameInfo}>
+            <div class="slds-card__header slds-grid">
+                <div class="slds-col slds-size_2-of-12 slds-align-middle">
+                    <!-- Reset button -->
+                    <lightning-button
+                        label="Reset"
+                        onclick={handleResetClick}
+                    ></lightning-button>
+                </div>
+                <div
+                    class="slds-col slds-size_8-of-12 slds-align-middle header-title"
+                >
+                    {gameStageLabel}
+                </div>
+                <div
+                    class="slds-col slds-size_2-of-12 slds-align-middle slds-text-align_right"
+                >
+                    <!-- Next phase button -->
+                    <lightning-button
+                        disabled={isNextButtonDisabled}
+                        label={nextButtonText}
+                        variant="brand"
+                        onclick={handleNextButtonClick}
+                    ></lightning-button>
+                </div>
+            </div>
+        </template>
+        <div class={cardBodyClasses}>
+            <template if:false={error}>
+                <!-- Session and questions are loading -->
+                <template if:false={gameInfo}>
+                    <lightning-spinner
+                        alternative-text="Loading session data"
+                        variant="brand"
+                    ></lightning-spinner>
+                </template>
+
+                <!-- Session and questions are loaded -->
+                <template if:true={gameInfo}>
+                    <!-- Registration -->
+                    <template if:true={isRegistrationStage}>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-registration
+                                    game-settings={gameSettings}
+                                    game-info={gameInfo}
+                                ></c-registration>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-player-list
+                                    game-info={gameInfo}
+                                    onupdateplayercount={handlePlayerCountUpdate}
+                                ></c-player-list>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Select Characters -->
+                    <template if:true={isSelectCharactersStage}>
+                        <c-game-setup
+                            onupdateselectedcharacters={handleSelectedCharactersUpdate}
+                        ></c-game-setup>
+                        <!-- <c-progress-bar
+                            duration="3"
+                            ontimeout={handleNextPhaseClick}
+                        ></c-progress-bar> -->
+                    </template>
+
+                    <!-- Pre-question -->
+                    <template if:true={showMainScreen}>
+                        <div>
+                            <c-main-screen game-id={gameInfo.id} card-back={gameInfo.cardBack} onvotingupdate={handleVotingUpdate}></c-main-screen>
+                        </div>
+                    </template>
+
+                    <template if:true={showModal}>
+                        <c-game-play-modal action-map={actionMap} action-description={actionDescription} game-id={gameInfo.id} onactionsdone={handleGameStageUpdate}></c-game-play-modal>
+                    </template>
+
+                    <!-- Question -->
+                    <template if:true={isQuestionPhase}>
+                        Question Progress Bar
+                        <!-- <c-progress-bar
+                            duration={quizSettings.questionTimer}
+                            ontimeout={handleNextPhaseClick}
+                        ></c-progress-bar> -->
+                        Question
+                        <!-- <c-question
+                            question-object={currentQuestion}
+                        ></c-question> -->
+                    </template>
+
+                    <!-- Question results -->
+                    <template if:true={isQuestionResultsPhase}>
+                        <h1 class="answer-label">{correctAnswerLabel}</h1>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                Answer bar chart
+                                <!-- <c-answer-bar-chart
+                                    correct-answer={currentQuestion.correctAnswer}
+                                ></c-answer-bar-chart> -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                question result leaderboard
+                                <!-- <c-leader-board></c-leader-board> -->
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Game results -->
+                    <template if:true={isGameResultsPhase}>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                winner
+                                <!-- <c-winner></c-winner> -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                leader board
+                                <!-- <c-leader-board></c-leader-board> -->
+                            </div>
+                        </div>
+                    </template>
+                </template>
+            </template>
+        </div>
+    </div>
+    <div class="slds-text-align_center slds-text-color_weak">
+        One Night Werewolf by Steven Workman
+        &nbsp;-&nbsp;Host app v{HOST_APP_VERSION}&nbsp;-&nbsp;
+    </div>
+</template>

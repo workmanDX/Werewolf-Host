@@ -1,0 +1,35 @@
+<!--
+  @File Name          : cardDisplay.html
+  @Description        : 
+  @Author             : steven.workman@logmein.com
+  @Group              : 
+  @Last Modified By   : steven.workman@logmein.com
+  @Last Modified On   : 12-20-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    5/20/2020   steven.workman@logmein.com     Initial Version
+-->
+<template>
+    <div class="h1">
+        <div>
+            {card.name}
+        </div>
+        <!-- <img class={cardClass} src={cardImage} alt={card.name} width={imageWidth} height={imageHeight} onclick={handleCardClick}> -->
+        <img class={cardClass} src={cardImage} alt={card.name} onclick={handleCardClick}>
+        <template if:false={card.Center_Player__c}>
+            <div>
+                <template if:true={showReset}>
+                    <lightning-button label="Reset" variant="brand" onclick={handleResetPlayer}></lightning-button>
+                    <lightning-button label="Cancel" variant="brand" onclick={handleResetCancel}></lightning-button>
+                </template>
+            </div>
+        </template>
+        <template if:false={card.centerCard}>
+            <div class="slds-align_absolute-center">
+                <template if:true={showVotes}>
+                    Votes Against: {card.votesAgainst}
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

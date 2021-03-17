@@ -1,0 +1,25 @@
+<!--
+  @description       : 
+  @author            : steven.workman@logmein.com
+  @group             : 
+  @last modified on  : 12-05-2020
+  @last modified by  : steven.workman@logmein.com
+  Modifications Log 
+  Ver   Date         Author                       Modification
+  1.0   11-14-2020   steven.workman@logmein.com   Initial Version
+-->
+<template>
+    <h1>Players {playerCount}</h1>
+
+    <template if:true={error}> {error} </template>
+
+    <template if:false={error}>
+        <div class="slds-grid slds-wrap">
+            <template for:each={playerNames} for:item="playerName">
+                <div key={playerName} class="slds-col slds-size_4-of-12 name">
+                    {playerName}
+                </div>
+            </template>
+        </div>
+    </template>
+</template>
