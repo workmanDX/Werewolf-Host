@@ -13,7 +13,7 @@
 coverage/
 
 # SOQL Query Results
-**/scripts/soql/query-results
+**/scripts/
 
 # Logs
 logs
