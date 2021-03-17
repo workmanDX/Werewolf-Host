@@ -40,7 +40,7 @@ $RECYCLE.BIN/
 # Other files
 .eslintignore
 .forceignore
-.preetierignore
+.prettierignore
 .prettierrc
 package.json
 sfdx-project.json
