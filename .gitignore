@@ -12,7 +12,7 @@
 # LWC Jest coverage reports
 coverage/
 
-# SOQL Query Results
+# Scripts
 **/scripts/
 
 # Logs
