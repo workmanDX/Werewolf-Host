@@ -1,18 +1,12 @@
-# Salesforce DX Project: Next Steps
+# One Night Werewolf built with LWC
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This is a game based on One Night Werewolf that was built to play remotely with family and friends.
 
-## How Do You Plan to Deploy Your Changes?
+The game is made up of two LWC apps, this is the first, which is the host app and during game play is shared over GoToMeeting, Zoom, etc.  The second app is LWC OSS so it can be hosted outside of Salesforce, I use Heroku.  It is the player app and is compatible with large screens and mobile devices.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+The player app can be found [here](https://github.com/workmanDX/werewolf-player-dev).
 
-## Configure Your Salesforce DX Project
+I started with the original source code found [here](https://github.com/fostive/quiz-host-app) and modified it.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+![Select characters](https://github.com/workmandx/Werewolf-Host/blob/main/images/SelectCharacters.jpg)
 
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
