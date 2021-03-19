@@ -8,4 +8,15 @@ The player app can be found [here](https://github.com/workmanDX/werewolf-player-
 
 I started with the original source code found [here](https://github.com/fostive/quiz-host-app) and modified it.
 
+
+# Selecting characters for the game
+
 ![Select characters](images/Select_Characters.jpg)
+
+
+# Game play - Werewolves' turn
+![Werewolves's turn](images/hostGameplay.jpg)
+
+
+# End of game - reveal all players' cards
+![End of game](images/hostEnd.jpg)
