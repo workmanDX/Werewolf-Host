@@ -8,5 +8,4 @@ The player app can be found [here](https://github.com/workmanDX/werewolf-player-
 
 I started with the original source code found [here](https://github.com/fostive/quiz-host-app) and modified it.
 
-![Select characters](images/SelectCharacters.jpg)
-
+![Select characters](images/Select_Characters.jpg)
